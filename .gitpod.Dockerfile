@@ -34,18 +34,16 @@ RUN git clone https://github.com/novnc/noVNC.git /opt/novnc && \
     echo "<html><head><meta http-equiv=\"Refresh\" content=\"0; url=vnc.html?autoconnect=true&reconnect=true&reconnect_delay=1000&resize=scale&quality=9\"></head></html>" > /opt/novnc/index.html
 
 # Install packages
-RUN wget -O ycm.deb ${YCM_PKG} && \
-    wget -O icub-common.deb ${ICUB_COMMON_PKG} && \
-    wget -O yarp.deb ${YARP_PKG} && \
-    wget -O icub.deb ${ICUB_PKG}
+RUN wget -O /opt/ycm.deb ${YCM_PKG} && \
+    wget -O /opt/icub-common.deb ${ICUB_COMMON_PKG} && \
+    wget -O /opt/yarp.deb ${YARP_PKG} && \
+    wget -O /opt/icub.deb ${ICUB_PKG}
 
 # Let's keep them on separate commands to ease catching potential problems
-RUN ls -la *.deb
-RUN gdebi -n ./ycm.deb
-RUN gdebi -n ./icub-common.deb
-RUN gdebi -n ./yarp.deb
-RUN gdebi -n ./icub.deb
-RUN rm *.deb
+RUN gdebi -n /opt/ycm.deb
+RUN gdebi -n /opt/icub-common.deb
+RUN gdebi -n /opt/yarp.deb
+RUN gdebi -n /opt/icub.deb
 
 # Set environmental variables
 ENV DISPLAY=:1
