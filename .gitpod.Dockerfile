@@ -52,7 +52,7 @@ ENV DISPLAY=:1
 ARG START_VNC_SESSION=/usr/bin/start-vnc-session.sh
 RUN echo "pkill -9 -f \"vnc\" && pkill -9 -f \"xf\" && pkill -9 Xorg" >> ${START_VNC_SESSION} && \
     echo "rm -f /tmp/.X1-lock" >> ${START_VNC_SESSION} && \
-    echo "nohup X \${DISPLAY} -config ${XORG_CONF} > /dev/null 2>&1 &" >> ${START_VNC_SESSION} && \
+    echo "nohup X \${DISPLAY} -config /etc/X11/xorg.conf > /dev/null 2>&1 &" >> ${START_VNC_SESSION} && \
     echo "nohup startxfce4 > /dev/null 2>&1 &" >> ${START_VNC_SESSION} && \
     echo "nohup x11vnc -localhost -display \${DISPLAY} -N -forever -shared -bg > /dev/null 2>&1" >> ${START_VNC_SESSION} && \
     echo "nohup /opt/novnc/utils/launch.sh --web /opt/novnc --vnc localhost:5901 --listen 6080 > /dev/null 2>&1 &" >> ${START_VNC_SESSION} && \
