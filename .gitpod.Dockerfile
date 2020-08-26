@@ -2,7 +2,7 @@ FROM ubuntu:latest
 LABEL maintainer="ugo.pattacini@iit.it"
 
 # Define here which packages to install
-ARG ICUB_COMMON_PKG=https://github.com/robotology/icub-main/releases/download/v1.17.0/icub-common_1.17.0-1focal_amd64.deb
+ARG YCM_PKG=https://github.com/robotology/ycm/releases/download/v0.11.3/ycm-cmake-modules_0.11.3-1_all.deb
 ARG YARP_PKG=https://github.com/robotology/yarp/releases/download/v3.4.0/yarp-3.4.0-2.focal_amd64.deb
 ARG ICUB_PKG=https://github.com/robotology/icub-main/releases/download/v1.17.0/iCub1.17.0-1.focal_amd64.deb
 
@@ -33,16 +33,13 @@ RUN git clone https://github.com/novnc/noVNC.git /opt/novnc && \
     echo "<html><head><meta http-equiv=\"Refresh\" content=\"0; url=vnc.html?autoconnect=true&reconnect=true&reconnect_delay=1000&resize=scale&quality=9\"></head></html>" > /opt/novnc/index.html
 
 # Install packages
-RUN sh -c 'echo "deb http://www.icub.org/ubuntu `lsb_release -cs` contrib/science" > /etc/apt/sources.list.d/icub.list' && 
-    apt update && \
-    apt-key adv --keyserver keyserver.ubuntu.com --recv-keys 57A5ACB6110576A6
-RUN wget -O icub-common.deb ${ICUB_COMMON_PKG} && \
+RUN wget -O ycm.deb ${YCM_PKG} && \
     wget -O yarp.deb ${YARP_PKG} && \
     wget -O icub.deb ${ICUB_PKG}
 
 # Let's keep them on separate commands to ease catching potential problems
 RUN ls -la *.deb
-RUN gdebi -n ./icub-common.deb
+RUN gdebi -n ./ycm.deb
 RUN gdebi -n ./yarp.deb
 RUN gdebi -n ./icub.deb
 RUN rm *.deb
