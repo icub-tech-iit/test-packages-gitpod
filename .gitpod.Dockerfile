@@ -33,6 +33,9 @@ RUN git clone https://github.com/novnc/noVNC.git /opt/novnc && \
     echo "<html><head><meta http-equiv=\"Refresh\" content=\"0; url=vnc.html?autoconnect=true&reconnect=true&reconnect_delay=1000&resize=scale&quality=9\"></head></html>" > /opt/novnc/index.html
 
 # Install packages
+RUN sh -c 'echo "deb http://www.icub.org/ubuntu `lsb_release -cs` contrib/science" > /etc/apt/sources.list.d/icub.list' && 
+    apt update && \
+    apt-key adv --keyserver keyserver.ubuntu.com --recv-keys 57A5ACB6110576A6
 RUN wget -O icub-common.deb ${ICUB_COMMON_PKG} && \
     wget -O yarp.deb ${YARP_PKG} && \
     wget -O icub.deb ${ICUB_PKG}
