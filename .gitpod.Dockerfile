@@ -47,6 +47,8 @@ RUN gdebi -n /opt/icub.deb
 
 # Set environmental variables
 ENV DISPLAY=:1
+ENV YARP_DATA_DIRS=/usr/share/yarp:/usr/share/iCub
+ENV LD_LIBRARY_PATH=/usr/lib/yarp
 
 # Set up script to launch graphics and vnc
 ARG START_VNC_SESSION=/usr/bin/start-vnc-session.sh
