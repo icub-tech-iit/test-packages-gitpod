@@ -14,7 +14,7 @@ RUN apt update
 
 # Install essentials
 RUN apt install -y apt-utils software-properties-common apt-transport-https sudo psmisc lsb-release \
-        tmux nano wget build-essential git cmake cmake-curses-gui autoconf locales terminator
+        tmux nano wget build-essential git cmake cmake-curses-gui autoconf locales gdebi terminator
 
 # Set the locale
 RUN locale-gen en_US.UTF-8
@@ -39,9 +39,9 @@ RUN wget -O icub-common.deb ${ICUB_COMMON_PKG} && \
 
 # Let's keep them on separate commands to ease catching potential problems
 RUN ls -la *.deb
-RUN apt install ./icub-common.deb
-RUN apt install ./yarp.deb
-RUN apt install ./icub.deb
+RUN gdebi -n ./icub-common.deb
+RUN gdebi -n ./yarp.deb
+RUN gdebi -n ./icub.deb
 RUN rm *.deb
 
 # Set environmental variables
