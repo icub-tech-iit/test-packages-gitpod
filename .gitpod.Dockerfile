@@ -1,6 +1,9 @@
 FROM ubuntu:latest
 LABEL maintainer="ugo.pattacini@iit.it"
 
+# Increment this variable to force Docker to build the image again from the beginning w/o relying on cached sections
+ENV INVALIDATE_DOCKER_CACHE=0
+
 # Define here which packages to install
 ARG YCM_PKG=https://github.com/robotology/ycm/releases/download/v0.11.3/ycm-cmake-modules_0.11.3-1_all.deb
 ARG ICUB_COMMON_PKG=https://github.com/robotology/icub-main/releases/download/v1.17.0/icub-common_1.17.0-1focal_amd64.deb
