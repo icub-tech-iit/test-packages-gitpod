@@ -19,4 +19,4 @@ Instead, if you aim to test against different **`distros/releases`**, do:
 [3]: https://github.com/icub-tech-iit/test-packages-gitpod/blob/master/.gitpod.Dockerfile#L1-L8
 [4]: https://www.gitpod.io/docs/context-urls/#branch-context
 [5]: https://www.gitpod.io/docs/browser-extension
-[6]: https://github.com/icub-tech-iit/test-packages-gitpod/blob/master/.gitpod.Dockerfile#L94-L95
+[6]: https://github.com/icub-tech-iit/test-packages-gitpod/blob/master/.gitpod.Dockerfile#L91-L92
