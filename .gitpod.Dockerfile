@@ -83,9 +83,6 @@ USER root
 # Manage x11vnc, noVNC, and yarp ports
 EXPOSE 5901 6080 10000/tcp 10000/udp
 
-# Clean up unnecessary installation products
-RUN rm -Rf /var/lib/apt/lists/*
-
 # Set environmental variables
 ENV DISPLAY=:1
 ENV YARP_DATA_DIRS=/usr/share/yarp:/usr/share/iCub
@@ -106,6 +103,9 @@ RUN gdebi -n /opt/ycm.deb
 RUN gdebi -n /opt/icub-common.deb
 RUN gdebi -n /opt/yarp.deb
 RUN gdebi -n /opt/icub.deb
+
+# Clean up unnecessary installation products
+RUN rm -Rf /var/lib/apt/lists/*
 
 # Launch bash from /workspace
 WORKDIR /workspace
