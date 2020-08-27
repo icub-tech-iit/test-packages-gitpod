@@ -1,9 +1,6 @@
 FROM ubuntu:latest
 LABEL maintainer="ugo.pattacini@iit.it"
 
-# Increment this variable to force Docker to build the image again from the beginning w/o relying on cached sections
-ENV INVALIDATE_DOCKER_CACHE=0
-
 # Define here which packages to install
 ARG YCM_PKG=https://github.com/robotology/ycm/releases/download/v0.11.3/ycm-cmake-modules_0.11.3-1_all.deb
 ARG ICUB_COMMON_PKG=https://github.com/robotology/icub-main/releases/download/v1.17.0/icub-common_1.17.0-1focal_amd64.deb
@@ -35,23 +32,6 @@ RUN apt install -y python3 python3-dev python3-pip python3-setuptools && \
 RUN git clone https://github.com/novnc/noVNC.git /opt/novnc && \
     git clone https://github.com/novnc/websockify /opt/novnc/utils/websockify && \
     echo "<html><head><meta http-equiv=\"Refresh\" content=\"0; url=vnc.html?autoconnect=true&reconnect=true&reconnect_delay=1000&resize=scale&quality=9\"></head></html>" > /opt/novnc/index.html
-
-# Install packages
-RUN wget -O /opt/ycm.deb ${YCM_PKG} && \
-    wget -O /opt/icub-common.deb ${ICUB_COMMON_PKG} && \
-    wget -O /opt/yarp.deb ${YARP_PKG} && \
-    wget -O /opt/icub.deb ${ICUB_PKG}
-
-# Let's keep them on separate commands to ease catching potential problems
-RUN gdebi -n /opt/ycm.deb
-RUN gdebi -n /opt/icub-common.deb
-RUN gdebi -n /opt/yarp.deb
-RUN gdebi -n /opt/icub.deb
-
-# Set environmental variables
-ENV DISPLAY=:1
-ENV YARP_DATA_DIRS=/usr/share/yarp:/usr/share/iCub
-ENV LD_LIBRARY_PATH=/usr/lib/yarp
 
 # Set up script to launch graphics and vnc
 ARG START_VNC_SESSION=/usr/bin/start-vnc-session.sh
@@ -105,6 +85,27 @@ EXPOSE 5901 6080 10000/tcp 10000/udp
 
 # Clean up unnecessary installation products
 RUN rm -Rf /var/lib/apt/lists/*
+
+# Set environmental variables
+ENV DISPLAY=:1
+ENV YARP_DATA_DIRS=/usr/share/yarp:/usr/share/iCub
+ENV LD_LIBRARY_PATH=/usr/lib/yarp
+
+# Increment this variable to force Docker to build the image for the sections below w/o relying on cache
+ENV INVALIDATE_DOCKER_CACHE=0
+
+# Retrieve packages
+RUN wget -O /opt/ycm.deb ${YCM_PKG} && \
+    wget -O /opt/icub-common.deb ${ICUB_COMMON_PKG} && \
+    wget -O /opt/yarp.deb ${YARP_PKG} && \
+    wget -O /opt/icub.deb ${ICUB_PKG}
+
+# Install packages
+# Keep them on separate commands to ease catching potential problems
+RUN gdebi -n /opt/ycm.deb
+RUN gdebi -n /opt/icub-common.deb
+RUN gdebi -n /opt/yarp.deb
+RUN gdebi -n /opt/icub.deb
 
 # Launch bash from /workspace
 WORKDIR /workspace
