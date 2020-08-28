@@ -10,7 +10,7 @@ Find out more on [YARP-enabled Gitpod workspaces][2].
 Instead, if you aim to test against different **`distros/releases`**, do:
 1. 📝 Edit the file [`.gitpod.Dockerfile`](/.gitpod.Dockerfile) and create a **`new branch`**. In detail, you have to fiddle with these [sections][3].
 1. 🚀 Launch the corresponding Gitpod workspace from within the new branch. Don't click on the main badge but rather customize the [URL context][4]. To ease this operation, you may install the [Gitpod browser extension][5].
-1. 🧹 Once done, wipe out the branch.
+1. 🧹 Possibly, finish up by wiping out the branch.
 
 ⚠ As Docker relies on cached sections, you may still be using an old image when you've just updated a package to test. To invalidate the cache forcing Docker to build the relevant sections entirely again, apply this [workaround][6]. 
 
