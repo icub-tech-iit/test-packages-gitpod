@@ -1,5 +1,5 @@
 FROM ubuntu:latest
-LABEL maintainer="ugo.pattacini@iit.it"
+LABEL org.opencontainers.image.authors="Ugo Pattacini <ugo.pattacini@iit.it>"
 
 # Define here which packages to install
 ARG YCM_PKG=https://github.com/robotology/ycm/releases/download/v0.11.3/ycm-cmake-modules_0.11.3-1_all.deb
