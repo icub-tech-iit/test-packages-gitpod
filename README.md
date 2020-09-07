@@ -1,7 +1,8 @@
 Test Packages on Gitpod
 =======================
 
-To test packages for the **`latest ubuntu`** release of our SW distros, simple click on the badge below:
+A one-off disposable environment to test packages for the **`latest ubuntu`** release of our SW distros.
+To get started, simply click on the badge below:
 
 [![Gitpod](https://gitpod.io/button/open-in-gitpod.svg)][1]
 
