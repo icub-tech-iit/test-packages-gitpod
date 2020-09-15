@@ -43,6 +43,7 @@ RUN echo "pkill -9 -f \"vnc\" && pkill -9 -f \"xf\" && pkill -9 Xorg" >> ${START
     echo "nohup /opt/novnc/utils/launch.sh --web /opt/novnc --vnc localhost:5901 --listen 6080 > /dev/null 2>&1 &" >> ${START_VNC_SESSION} && \
     chmod +x ${START_VNC_SESSION}
 
+# X11 configuration
 ARG XORG_CONF=/etc/X11/xorg.conf
 RUN echo "Section \"Monitor\"" >> ${XORG_CONF} && \
     echo "Identifier \"Monitor0\"" >> ${XORG_CONF} && \
