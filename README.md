@@ -18,7 +18,7 @@ Instead, if you aim to test against different **`distros/releases`**, do:
 
 
 [1]: https://gitpod.io/#https://github.com/icub-tech-iit/test-packages-gitpod
-[2]: https://spectrum.chat/icub/technicalities/yarp-enabled-gitpod-workspaces-available~73ab5ee9-830e-4b7f-9e99-195295bb5e34
+[2]: https://github.com/robotology/community/discussions/459
 [3]: https://github.com/icub-tech-iit/test-packages-gitpod/blob/master/.gitpod.Dockerfile#L1-L8
 [4]: https://www.gitpod.io/docs/context-urls/#branch-context
 [5]: https://www.gitpod.io/docs/browser-extension
