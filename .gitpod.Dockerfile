@@ -90,7 +90,7 @@ ENV YARP_DATA_DIRS=/usr/share/yarp:/usr/share/iCub
 ENV LD_LIBRARY_PATH=/usr/lib/yarp
 
 # Increment this variable to force Docker to build the image for the sections below w/o relying on cache
-ENV INVALIDATE_DOCKER_CACHE=0
+ENV INVALIDATE_DOCKER_CACHE=1
 
 # Retrieve packages
 RUN wget -O /opt/ycm.deb ${YCM_PKG} && \
