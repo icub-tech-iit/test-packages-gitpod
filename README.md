@@ -23,4 +23,4 @@ As Docker relies on cached sections, you may still be using an old image when yo
 [3]: https://github.com/icub-tech-iit/test-packages-gitpod/blob/master/.gitpod.Dockerfile#L1-L8
 [4]: https://www.gitpod.io/docs/context-urls/#branch-context
 [5]: https://www.gitpod.io/docs/browser-extension
-[6]: https://github.com/icub-tech-iit/test-packages-gitpod/blob/master/.gitpod.Dockerfile#L93-L94
+[6]: https://github.com/icub-tech-iit/test-packages-gitpod/blob/master/.gitpod.Dockerfile#L4-L5
