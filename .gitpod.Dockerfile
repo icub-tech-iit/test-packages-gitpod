@@ -2,10 +2,10 @@ FROM ubuntu:latest
 LABEL org.opencontainers.image.authors="Ugo Pattacini <ugo.pattacini@iit.it>"
 
 # Define here which packages to install
-ARG YCM_PKG=https://github.com/robotology/ycm/releases/download/v0.12.0/ycm-cmake-modules_0.12.0-1.ubuntu20.04.robotology1_all.deb
-ARG ICUB_COMMON_PKG=https://github.com/robotology/icub-main/releases/download/v1.20.0/icub-common_1.20.0-1.focal_amd64.deb
+ARG YCM_PKG=https://github.com/robotology/ycm/releases/download/v0.13.0/ycm-cmake-modules_0.13.0-1.ubuntu20.04.robotology1_all.deb
+ARG ICUB_COMMON_PKG=https://github.com/robotology/icub-main/releases/download/v1.21.0/icub-common_1.21.0-1.focal_amd64.deb
 ARG YARP_PKG=https://github.com/robotology/yarp/releases/download/v3.4.0/yarp-3.4.0-2.focal_amd64.deb
-ARG ICUB_PKG=https://github.com/robotology/icub-main/releases/download/v1.20.0/iCub1.20.0-1.focal_amd64.deb
+ARG ICUB_PKG=https://github.com/robotology/icub-main/releases/download/v1.21.0/iCub1.21.0-1.focal_amd64.deb
 
 # Non-interactive installation mode
 ENV DEBIAN_FRONTEND=noninteractive
