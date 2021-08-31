@@ -2,7 +2,7 @@ FROM ubuntu:latest
 LABEL org.opencontainers.image.authors="Ugo Pattacini <ugo.pattacini@iit.it>"
 
 # Increment this variable to force Docker to build the image for the sections below w/o relying on cache
-ENV INVALIDATE_DOCKER_CACHE=1
+ENV INVALIDATE_DOCKER_CACHE_ALL=0
 
 # Define here which packages to install
 ARG YCM_PKG=https://github.com/robotology/ycm/releases/download/v0.13.0/ycm-cmake-modules_0.13.0-1.ubuntu20.04.robotology1_all.deb
@@ -92,6 +92,9 @@ EXPOSE 5901 6080 10000/tcp 10000/udp
 ENV DISPLAY=:1
 ENV YARP_DATA_DIRS=/usr/share/yarp:/usr/share/iCub
 ENV LD_LIBRARY_PATH=/usr/lib/yarp
+
+# Increment this variable to force Docker to build the image for the sections below w/o relying on cache
+ENV INVALIDATE_DOCKER_CACHE_DL=0
 
 # Retrieve packages
 RUN wget -O /opt/ycm.deb ${YCM_PKG} && \
