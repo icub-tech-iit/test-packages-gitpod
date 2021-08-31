@@ -20,7 +20,7 @@ As Docker relies on cached sections, you may still be using an old image when yo
 
 [1]: https://gitpod.io/#https://github.com/icub-tech-iit/test-packages-gitpod
 [2]: https://github.com/robotology/community/discussions/459
-[3]: https://github.com/icub-tech-iit/test-packages-gitpod/blob/master/.gitpod.Dockerfile#L1-L8
+[3]: https://github.com/icub-tech-iit/test-packages-gitpod/blob/master/.gitpod.Dockerfile#L7-L11
 [4]: https://www.gitpod.io/docs/context-urls/#branch-context
 [5]: https://www.gitpod.io/docs/browser-extension
 [6]: https://github.com/icub-tech-iit/test-packages-gitpod/blob/master/.gitpod.Dockerfile#L4-L5
