@@ -19,7 +19,7 @@ As Docker relies on cached sections, you may still be using an old image when yo
 - If you aim to build the whole image again, increase the variable [`INVALIDATE_DOCKER_CACHE_ALL`][6].
 - If you've just fixed up the packages and aim to download and install them again, increase the variable [`INVALIDATE_DOCKER_CACHE_DL`][7].
 
-[1]: https://gitpod.io/#https://github.com/icub-tech-iit/test-packages-gitpod
+[1]: https://gitpod.io/from-referrer
 [2]: https://github.com/robotology/community/discussions/459
 [3]: https://github.com/icub-tech-iit/test-packages-gitpod/blob/master/.gitpod.Dockerfile#L7-L11
 [4]: https://www.gitpod.io/docs/context-urls/#branch-context
