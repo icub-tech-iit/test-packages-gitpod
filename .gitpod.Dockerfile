@@ -1,14 +1,14 @@
-FROM ubuntu:latest
+FROM ubuntu:jammy
 LABEL org.opencontainers.image.authors="Ugo Pattacini <ugo.pattacini@iit.it>"
 
 # Increment this variable to force Docker to build the image for the sections below w/o relying on cache
 ENV INVALIDATE_DOCKER_CACHE_ALL=1
 
 # Define here which packages to install
-ARG YCM_PKG=https://github.com/robotology/ycm/releases/download/v0.14.0/ycm-cmake-modules_0.14.0-1.ubuntu20.04.robotology1_all.deb
-ARG ICUB_COMMON_PKG=https://github.com/robotology/icub-main/releases/download/v1.25.0/icub-common_1.25.0-1.focal_amd64.deb
-ARG YARP_PKG=https://github.com/robotology/yarp/releases/download/v3.7.0/yarp-3.7.0-2.focal_amd64.deb
-ARG ICUB_PKG=https://github.com/robotology/icub-main/releases/download/v1.25.0/iCub1.25.0-1.focal_amd64.deb
+ARG YCM_PKG=https://github.com/robotology/ycm/releases/download/v0.14.0/ycm-cmake-modules_0.14.0-1.ubuntu22.04.robotology1_all.deb
+ARG ICUB_COMMON_PKG=https://github.com/robotology/icub-main/releases/download/v1.25.0/icub-common_1.25.0-1.jammy_amd64.deb
+ARG YARP_PKG=https://github.com/robotology/yarp/releases/download/v3.7.0/yarp-3.7.0-2.jammy_amd64.deb
+ARG ICUB_PKG=https://github.com/robotology/icub-main/releases/download/v1.25.0/iCub1.25.0-1.jammy_amd64.deb
 
 # Non-interactive installation mode
 ENV DEBIAN_FRONTEND=noninteractive
