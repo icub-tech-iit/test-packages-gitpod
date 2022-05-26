@@ -5,7 +5,7 @@ LABEL org.opencontainers.image.authors="Ugo Pattacini <ugo.pattacini@iit.it>"
 ENV INVALIDATE_DOCKER_CACHE_ALL=1
 
 # Define here which packages to install
-ARG YCM_PKG=https://github.com/robotology/ycm/releases/download/v0.14.0/ycm-cmake-modules_0.14.0-1.ubuntu22.04.robotology1_all.deb
+ARG YCM_PKG=https://github.com/robotology/ycm/releases/download/v0.14.1/ycm-cmake-modules-0.14.1-all.deb
 ARG ICUB_COMMON_PKG=https://github.com/robotology/icub-main/releases/download/v1.25.0/icub-common_1.25.0-1.jammy_amd64.deb
 ARG YARP_PKG=https://github.com/robotology/yarp/releases/download/v3.7.0/yarp-3.7.0-2.jammy_amd64.deb
 ARG ICUB_PKG=https://github.com/robotology/icub-main/releases/download/v1.25.0/iCub1.25.0-1.jammy_amd64.deb
